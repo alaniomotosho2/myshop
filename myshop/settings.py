@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+#SESSION
+#This is the key that we are going to use to store the cart in the user session.
+CART_SESSION_ID = 'cart'
+
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -38,6 +43,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
+    #cart app
+    'cart',
 )
 
 MIDDLEWARE_CLASSES = (
