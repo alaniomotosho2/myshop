@@ -3,6 +3,9 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 
+#we import this from the cart app
+from cart.forms import CartAddProductForm
+
 
 #catalogue view
 def product_list(request, category_slug=None):
@@ -21,5 +24,8 @@ def product_detail(request, id, slug):
 	#in order to retrieve the Product instance.
 	product = get_object_or_404(Product,id=id,slug=slug,available=True)
 
-	return render(request,'shop/product/detail.html',{'product': product})
+	#from the cart app
+	cart_product_form = CartAddProductForm()
+
+	return render(request,'shop/product/detail.html',{'product': product,'cart_product_form': cart_product_form})
 
